@@ -1,0 +1,47 @@
+@font-face {
+   font-family: dita;
+   src: url(../dita.ttf);
+}
+body {
+	background-color: white;
+	font-family: dita;
+}
+header {
+	background-color: red;
+	margin-top: 10%;
+	margin-left: 20%;
+	padding-top: 75px;
+	padding-left: 150px;
+	padding-bottom: 75px;
+	color: white;
+	width: 48%;
+	font-size: 50px;
+	font-family: dita;
+}
+#start-button {
+	margin-top: 10%;
+	margin-left: 40%;
+	width: 200px;
+	height: 100px;
+	background-color: red;
+	font-family: dita;
+	color: white;
+	font-size: 24px;
+}
+h3 {
+	text-align: center;
+	margin-left: -5%;
+}
+.questions {
+	text-align: center;
+	margin-left: -5%;
+}
+#question-section {
+	display: none;
+}
+#t-remaining {
+	margin-top: -15%;
+	margin-left: 40%;
+	font-size: 24px;
+	visibility: hidden;
+}
