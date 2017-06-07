@@ -1,54 +1,47 @@
 // Create on click function so trivia game begins when user clicks start button
-var answer1 = document.getElementById("km");
-var answer2 = document.getElementById("ka");
-var answer3 = document.getElementById("kar");
-var answer4 = document.getElementById("karm");
-var answer5 = document.getElementById("karma");
-var answer6 = document.getElementById("karma c");
-var answer7 = document.getElementById("karma ch");
-var answer8 = document.getElementById("karma cha");
-var numQuestions = ["answer1", "answer2", "answer3", "answer4", "answer5", "answer6", "answer7", "answer8"]
+// var answer1 = document.getElementById("km").value;
+// var answer2 = document.getElementById("ka").value;
+// var answer3 = document.getElementById("kar").value;
+// var answer4 = document.getElementById("karm").value;
+// var answer5 = document.getElementById("karma").value;
+// var answer6 = document.getElementById("karma c").value;
+// var answer7 = document.getElementById("karma ch").value;
+// var answer8 = document.getElementById("karma cha").value;
+var numQuestions = ["answer1", "answer2", "answer3", "answer4", "answer5", "answer6", "answer7", "answer8"];
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unansweredAnswers = 0;
+var timer = 10;
 
 window.onload = function(){ 
-    document.getElementById("start-button").onclick = function () { 
-		document.getElementById("start-button").style.visibility = "hidden"; // Hide start button when user clicks it.
-		document.getElementById("question-section").style.display = "block";
-		document.getElementById("t-remaining").style.visibility = "visible";
-		document.getElementById("timer").innerHTML =
-  		00 + ":" + 10;
-		startTimer();
+    document.getElementById("start-button").onclick = function(startGame) { 
+		document.getElementById("start-button").style.visibility = "hidden"; // Hide start button when user clicks button.
+		document.getElementById("question-section").style.display = "block"; // Make questions visible when user clicks button.
+		document.getElementById("t-remaining").style.visibility = "visible"; // Make timer visible when user clicks button.
 		for (var i = 0; i < numQuestions; i++) {
-			if (userInput[i]==answers[i]) {
-				correctAnswers += 1;
+			var userGuess = document.getElementByValue("KarmaChameleon").checked;
+			if (userGuess == numQuestions[i]) {
+				correctAnswers++;
 			}
 			else {
-				incorrectAnswers += 1;
+				incorrectAnswers++; // Still need to increment unanswered questions, perhaps with if else statement.
 			}
-		console.log(correctAnswers);
+		console.log("Correct Answers: " + correctAnswers);
 	};
-};
 
-function startTimer() {
-  var presentTime = document.getElementById("timer").innerHTML;
-  var timeArray = presentTime.split(/[:]+/);
-  var m = timeArray[0];
-  var s = checkSecond((timeArray[1] - 1));
-  if(s==59){m=m-1}
-  //if(m<0){alert('timer completed')}
-  
-  document.getElementById("timer").innerHTML =
-    m + ":" + s;
-  setTimeout(startTimer, 1000);
-}
+	var count = document.getElementById("timer");
+	function timeoutfn() {
+		
+		timer--;
+       count.innerHTML = timer;
+       if (timer == 0) {
+       	return;
+       }
+       setTimeout(timeoutfn, 1000);
+	}
 
-function checkSecond(sec) {
-  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-  if (sec < 0) {sec = "59"};
-  return sec;
-}
+	setTimeout(timeoutfn, 1000);
+	};
 
 
 };
