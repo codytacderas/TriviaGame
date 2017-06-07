@@ -1,13 +1,6 @@
 // Create on click function so trivia game begins when user clicks start button
-// var answer1 = document.getElementById("km").value;
-// var answer2 = document.getElementById("ka").value;
-// var answer3 = document.getElementById("kar").value;
-// var answer4 = document.getElementById("karm").value;
-// var answer5 = document.getElementById("karma").value;
-// var answer6 = document.getElementById("karma c").value;
-// var answer7 = document.getElementById("karma ch").value;
-// var answer8 = document.getElementById("karma cha").value;
-var numQuestions = ["answer1", "answer2", "answer3", "answer4", "answer5", "answer6", "answer7", "answer8"];
+
+var numQuestions = [];
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unansweredAnswers = 0;
@@ -18,15 +11,28 @@ window.onload = function(){
 		document.getElementById("start-button").style.visibility = "hidden"; // Hide start button when user clicks button.
 		document.getElementById("question-section").style.display = "block"; // Make questions visible when user clicks button.
 		document.getElementById("t-remaining").style.visibility = "visible"; // Make timer visible when user clicks button.
-		for (var i = 0; i < numQuestions; i++) {
-			var userGuess = document.getElementByValue("KarmaChameleon").checked;
+		var answer1 = document.getElementById("km").value;
+		var answer2 = document.getElementById("ka").value;
+		var answer3 = document.getElementById("kar").value;
+		var answer4 = document.getElementById("karm").value;
+		var answer5 = document.getElementById("karma").value;
+		var answer6 = document.getElementById("karma c").value;
+		var answer7 = document.getElementById("karma ch").value;
+		var answer8 = document.getElementById("karma cha").value;
+		var userGuess = document.getElementByType("radio").checked;
+		var numQuestions = "Karma Chameleon";x
+		$("input[type='radio']").click(function(){
 			if (userGuess == numQuestions[i]) {
 				correctAnswers++;
+				console.log("Correct Answers: " + correctAnswers);
 			}
 			else {
-				incorrectAnswers++; // Still need to increment unanswered questions, perhaps with if else statement.
+				incorrectAnswers++; 
+				console.log("Incorrect Answers: " + incorrectAnswers);
 			}
-		console.log("Correct Answers: " + correctAnswers);
+  		 });
+			
+		
 	};
 
 	var count = document.getElementById("timer");
@@ -44,7 +50,7 @@ window.onload = function(){
 	};
 
 
-};
+
 
 
 
